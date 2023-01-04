@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, Router, Routes } from 'react-router-dom'
+import Category from './components/Category'
+import Sidebar from './components/Sidebar'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="d-flex align-items-stretch">
+          <Sidebar/>
+      <div className="page-content">
+         <Routes>
+          <Route path="/category" element={<Category/>}/>
+         </Routes>
+      </div>
     </div>
-  );
+  )
 }
-
-export default App;
