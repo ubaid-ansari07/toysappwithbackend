@@ -1,5 +1,5 @@
 import express from 'express';
-import { list, remove, save, update } from '../controllers/categoryController.js';
+import { list, remove, save, update } from '../controllers/brandController.js';
 const router = express.Router();
 
     router.get('/list',list);
