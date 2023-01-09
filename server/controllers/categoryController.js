@@ -1,3 +1,4 @@
+import Brand from "../models/brandSchema.js";
 import Category from "../models/categorySchema.js";
 
 export const list = async (req,res,next)=>{
@@ -21,6 +22,7 @@ export const save = async (req,res,next)=>{
 export const remove = async (req,res,next)=>{
     try {
         const data =await Category.deleteOne({_id:req.params.id})
+        const br = await Brand.deleteMany({categoryId:req.params.id});
         res.json({status:true,mess:"Category deleted successfully"})
     } catch (error) {
         console.log(error);

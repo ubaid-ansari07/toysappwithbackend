@@ -32,6 +32,18 @@ export default function Sidebar() {
             <span>Brands</span>
         </Link>
     </li>
+    <li className="nav-item">
+        <Link className="nav-link" to="/add-product" >
+             <i className="fa fa-list"></i> 
+            <span>Add Products</span>
+        </Link>
+    </li>
+    <li className="nav-item">
+        <Link className="nav-link" to="/all-product" >
+             <i className="fa fa-list"></i> 
+            <span>All Products</span>
+        </Link>
+    </li>
     <hr className="sidebar-divider"/>
 </ul>
   )

@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import axios from "axios";
-export default function Category() {
-  const [categoryList, setCategoryList] = useState([]);
+import MasterContext from "./MasterContext";
+export default function Category({setCategoryList}) {
   const [alertMess, setAlertMess] = useState("");
   const [failMess, setFailMess] = useState("");
   const [addBtn, setAddBtn] = useState(true);
@@ -10,9 +10,8 @@ export default function Category() {
   const [idField, setIdFiled] = useState("");
   const [isUpdate,setIsUpdate] = useState(true);
   let categoryField = useRef("");
-  useEffect(() => {
-    loadData();
-  }, []);
+  const {categoryList} = useContext(MasterContext);
+
   const loadData = async () => {
     const response = await axios.get("http://localhost:8000/category/list");
     if (response.status) setCategoryList(response.data.data);
