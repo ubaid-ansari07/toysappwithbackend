@@ -1,8 +1,8 @@
-import axios from 'axios';
+
 import React, { useContext, useState } from 'react'
 import MasterContext from './MasterContext'
 import PaginatedItems from './PaginatedItems';
-import ProductTable from './ProductTable';
+
 
 export default function ProductList({setProductList}) {
 

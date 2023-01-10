@@ -8,6 +8,7 @@ import AddProduct from './components/AddProduct'
 import axios from 'axios'
 import MasterContext from './components/MasterContext'
 import ProductList from './components/ProductList'
+import User from './User'
 export default function App() {
   const [categoryList,setCategoryList] = useState([]);
   const [brandList,setBrandList] = useState([]);
@@ -30,19 +31,51 @@ export default function App() {
     if (response.status) setProductList(response.data.data);
   };
   return (
-      <div className="d-flex">
-          <Sidebar/>
-      <div className='container'>
         <MasterContext.Provider value={{categoryList:categoryList,brandList:brandList,productList:productList}}>
          <Routes>
-          <Route path="/category" element={<Category setCategoryList={setCategoryList}/>}/>
-          <Route path="/brand" element={<Brand setBrandList={setBrandList}/>}/>
-          <Route path="/add-product" element={<AddProduct setProductList={setProductList}/>}/>
-          <Route path="/all-product" element={<ProductList setProductList={setProductList}/>}/>
-          <Route path="/edit-brand" element={<UpdateBrand/>}/>
+          <Route path="/" element={<User />}/>
+          <Route path="/category" element={<>
+            <div className='d-flex'>
+            <Sidebar/>
+                 <div className='container'>
+               <Category setCategoryList={setCategoryList}/>
+                 </div>
+              </div>
+          </>}/>
+          <Route path="/brand" element={
+            <div className='d-flex'>
+            <Sidebar/>
+                 <div className='container'>
+                 <Brand setBrandList={setBrandList}/>
+                 </div>
+              </div>
+            
+            }/>
+          <Route path="/add-product" element={
+            <div className='d-flex'>
+            <Sidebar/>
+                 <div className='container'>
+                 <AddProduct setProductList={setProductList}/>
+                 </div>
+              </div>
+            }/>
+          <Route path="/all-product" element={
+            <div className='d-flex'>
+            <Sidebar/>
+                 <div className='container'>
+                 <ProductList setProductList={setProductList}/>
+                 </div>
+              </div>
+            }/>
+          <Route path="/edit-brand" element={
+            <div className='d-flex'>
+            <Sidebar/>
+                 <div className='container'>
+                 <UpdateBrand/>
+                 </div>
+              </div>
+            }/>
          </Routes>
         </MasterContext.Provider>
-      </div>
-    </div>
   )
 }
