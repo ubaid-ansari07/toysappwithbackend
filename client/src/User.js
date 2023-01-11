@@ -10,7 +10,7 @@ export default function User() {
     <div className='container-fluid'>
       <Header/>
     </div>
-    <PaginatedItemsUser itemsPerPage={6}/>
+    <PaginatedItemsUser itemsPerPage={3}/>
         {/* <UserProducts/> */}
     <Footer/>
     </>

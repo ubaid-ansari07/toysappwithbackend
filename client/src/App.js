@@ -9,6 +9,7 @@ import axios from 'axios'
 import MasterContext from './components/MasterContext'
 import ProductList from './components/ProductList'
 import User from './User'
+import ProductDetails from './components/ProductDetails'
 export default function App() {
   const [categoryList,setCategoryList] = useState([]);
   const [brandList,setBrandList] = useState([]);
@@ -34,6 +35,7 @@ export default function App() {
         <MasterContext.Provider value={{categoryList:categoryList,brandList:brandList,productList:productList}}>
          <Routes>
           <Route path="/" element={<User />}/>
+          <Route path="/product-details" element={<ProductDetails />}/>
           <Route path="/category" element={<>
             <div className='d-flex'>
             <Sidebar/>

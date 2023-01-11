@@ -1,20 +1,17 @@
 import React, { useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import ProductTable from './ProductTable';
+// import './Paginate.css';
 
 export default function PaginatedItems({itemsPerPage,items,setProductList}) {
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
-  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = items.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(items.length / itemsPerPage);
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % items.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
     setItemOffset(newOffset);
   };
 
@@ -32,6 +29,17 @@ export default function PaginatedItems({itemsPerPage,items,setProductList}) {
         pageCount={pageCount}
         previousLabel="< previous"
         renderOnZeroPageCount={null}
+
+            breakClassName={'page-item'}
+            breakLinkClassName={'page-link'}
+            containerClassName={'pagination'}
+            pageClassName={'page-item'}
+            pageLinkClassName={'page-link'}
+            previousClassName={'page-item'}
+            previousLinkClassName={'page-link'}
+            nextClassName={'page-item'}
+            nextLinkClassName={'page-link'}
+            activeClassName={'active'}
       />
     </>
   );

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div className='container-fluid mt-5 bg-dark text-light'>
+    <div className='container-fluid mt-5' style={{backgroundColor:'#2a2b2d',color:'white'}}>
         <div className='row p-5'>
             <div className='col-md-2 m-auto'>
                 <h6>Shipping & Return</h6>
